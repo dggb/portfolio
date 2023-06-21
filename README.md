@@ -12,8 +12,3 @@
 
 zzzzzz
 ㅂㅈㄷㅂㅈㄷ
-
-
-asd
-
-abas
