@@ -1,4 +1,5 @@
 import './App.css';
+import React, { useState } from 'react';
 
 const element = (
   <div>
@@ -27,6 +28,28 @@ function divTest(item,index) {
   }
 }
 
+function Test(props) {
+  console.log(props);
+}
+
+function ButtonToggle() {
+  const [isToggleOn, setToggleState] = useState(true);
+
+  const clickEvent = () => {
+    setToggleState(isToggleOn => !isToggleOn);
+  };
+
+  return (
+    <button onClick={clickEvent}>
+      {isToggleOn ? 'ON' : 'OFF'}
+    </button>
+  );
+}
+
+function eventTest(e){
+  console.log(e);
+}
+
 function App() {
   return <div className="App">
           <header className="App-header">
@@ -35,10 +58,11 @@ function App() {
                 return (divTest(el,index))
               })
             }
-            <button onClick={() => alert('안녕')}>
-              안녕
-            </button>
+            <ButtonToggle />
+            <button onClick={(e)=> eventTest(e)}>클릭</button>
             {element}
+            <Test item={testUser} abc="abc" />
+            
           </header>
         </div>;
 }
