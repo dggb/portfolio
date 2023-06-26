@@ -56,6 +56,29 @@ function eventTest(e){
   console.log(e);
 }
 
+function NumberList() {
+  const [count, setCount] = useState(0);
+
+  const inputData = (event) => {
+    const value = parseInt(event.target.value);
+    setCount(value);
+  };
+
+  const listItems = [];
+
+  for (let i = 1; i <= count; i++) {
+    listItems.push(<li key={i.toString()}>{i}</li>);
+  }
+
+  return (
+    <div>
+      숫자를 입력하세요 : &nbsp;
+      <input type="number" onChange={inputData} /> 
+      <ul>{listItems}</ul>
+    </div>
+  );
+}
+
 function App() {
   return <div className="App">
           <header className="App-header">
@@ -69,6 +92,7 @@ function App() {
             {element}
             <Test item={testUser} abc="abc" />
             {type2}
+            <NumberList />
           </header>
         </div>;
 }
